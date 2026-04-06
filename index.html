@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PYMAI - IA Premium Solutions</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="./public/favicon.svg" type="image/svg+xml">
+  
+  <!-- Meta Etiquetas / Open Graph (Para SEO, WhatsApp, LinkedIn) -->
+  <meta name="description" content="Automatización Inteligente para negocios y Pymes. Analítica avanzada e Inteligencia Artificial adaptada a tus necesidades con la metodología Lean AI.">
+  <meta property="og:title" content="PYMAI - IA Premium Solutions">
+  <meta property="og:description" content="Transformamos tu empresa optimizando los procesos y reduciendo costes mediante Agentes IA y Automatizaciones inteligentes.">
+  <meta property="og:image" content="./public/hero-bg.png">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   VARIABLES & RESET
+═══════════════════════════════════════ */
+:root {
+  --bg-primary:    #03060f;
+  --bg-secondary:  #070c1a;
+  --bg-card:       rgba(255,255,255,0.03);
+  --accent-purple: #7c3aed;
+  --accent-purple2:#a855f7;
+  --accent-cyan:   #00d4ff;
+  --text-primary:  #f1f5f9;
+  --text-secondary:#94a3b8;
+  --text-muted:    #475569;
+  --border:        rgba(255,255,255,0.07);
+  --border-purple: rgba(124,58,237,0.3);
+  --glow-purple:   rgba(124,58,237,0.2);
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter',sans-serif;
+  background:var(--bg-primary);
+  color:var(--text-primary);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+a { text-decoration:none; color:inherit; }
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+.navbar {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 5%; height:68px;
+  background:rgba(3,6,15,0.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-purple);
+  transition:height .3s;
+}
+.navbar::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-purple),var(--accent-cyan),var(--accent-purple),transparent);
+  background-size:200% 100%;
+  animation:navLine 4s linear infinite;
+}
+@keyframes navLine { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+.logo-text {
+  font-family:'Outfit',sans-serif; font-weight:800; font-size:1.7rem;
+  background:linear-gradient(135deg,#fff,var(--accent-purple2));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  letter-spacing:-.02em;
+}
+.nav-links { display:flex; align-items:center; gap:6px; }
+.nav-links a {
+  font-size:.82rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-secondary); padding:8px 14px; border-radius:8px;
+  transition:color .2s;
+}
+.nav-links a:hover { color:var(--text-primary); }
+.btn-outline {
+  border:1px solid var(--border-purple) !important;
+  color:var(--accent-purple2) !important;
+  transition:all .25s !important;
+}
+.btn-outline:hover {
+  background:var(--accent-purple) !important;
+  color:#fff !important;
+  border-color:var(--accent-purple) !important;
+}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero {
+  position:relative; min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:100px 5% 60px; overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% -5%, rgba(124,58,237,.22), transparent),
+    radial-gradient(ellipse 50% 40% at 85% 90%, rgba(0,212,255,.09), transparent),
+    var(--bg-primary);
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(124,58,237,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,.05) 1px, transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+.hero-bg { display:none; }
+.hero-content {
+  position:relative; z-index:1;
+  text-align:center; max-width:880px;
+}
+.hero-title {
+  font-family:'Outfit',sans-serif; font-weight:800;
+  font-size:clamp(3rem,7.5vw,6.5rem);
+  line-height:.95; letter-spacing:-.02em;
+  color:var(--text-primary); margin-bottom:24px;
+}
+.hero-title .highlight {
+  background:linear-gradient(135deg,var(--accent-purple2),var(--accent-cyan));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-subtitle {
+  font-size:clamp(1rem,2vw,1.2rem);
+  color:var(--text-secondary); line-height:1.75;
+  max-width:660px; margin:0 auto 40px;
+}
+.hero-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* ═══════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Outfit',sans-serif; font-weight:600;
+  font-size:.9rem; letter-spacing:.04em;
+  padding:14px 32px; border-radius:10px;
+  border:none; cursor:pointer; transition:all .3s;
+  text-decoration:none;
+}
+.btn-primary {
+  background:linear-gradient(135deg,var(--accent-purple),var(--accent-purple2));
+  color:#fff; box-shadow:0 4px 24px rgba(124,58,237,.4);
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(124,58,237,.6); }
+.btn-secondary {
+  background:rgba(255,255,255,.06); color:var(--text-primary);
+  border:1px solid var(--border);
+}
+.btn-secondary:hover { background:rgba(255,255,255,.1); }
+
+/* ═══════════════════════════════════════
+   SERVICES SECTION
+═══════════════════════════════════════ */
+.services {
+  padding:100px 5%;
+  background:var(--bg-secondary);
+}
+.section-title {
+  font-family:'Outfit',sans-serif; font-weight:800;
+  font-size:clamp(2rem,4vw,3rem);
+  color:var(--text-primary); text-align:center; margin-bottom:60px;
+}
+.services-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  max-width:1200px; margin:0 auto;
+}
+.service-card {
+  background:var(--bg-card); border:1px solid var(--border);
+  border-radius:20px; padding:28px 24px;
+  transition:all .4s cubic-bezier(.23,1,.32,1);
+  position:relative; overflow:hidden;
+}
+.service-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:1.5px;
+  background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan));
+  transform:scaleX(0); transform-origin:left; transition:transform .4s;
+}
+.service-card:hover {
+  transform:translateY(-5px);
+  border-color:rgba(124,58,237,.4);
+  box-shadow:0 20px 50px rgba(124,58,237,.15);
+}
+.service-card:hover::before { transform:scaleX(1); }
+.service-icon {
+  width:52px; height:52px; border-radius:14px;
+  background:rgba(124,58,237,.12); border:1px solid rgba(124,58,237,.2);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px; color:var(--accent-purple2);
+}
+.service-card h3 {
+  font-family:'Outfit',sans-serif; font-weight:700; font-size:1rem;
+  color:var(--text-primary); margin-bottom:8px;
+}
+.service-card p { font-size:.85rem; color:var(--text-secondary); line-height:1.68; }
+
+/* Bullet list inside service cards */
+.card-list {
+  list-style:none; padding:0; margin:0;
+  display:flex; flex-direction:column; gap:5px;
+}
+.card-list li {
+  display:flex; align-items:flex-start; gap:8px;
+  font-size:.85rem; color:var(--text-secondary); line-height:1.55;
+}
+.card-list li::before {
+  content:'—';
+  color:var(--accent-cyan);
+  font-weight:700; flex-shrink:0;
+  margin-top:0;
+}
+
+/* Muted subtitle below h3 */
+.card-subtitle {
+  font-size:.75rem;
+  color:var(--text-muted);
+  font-style:italic;
+  margin-bottom:10px;
+  margin-top:-4px;
+  line-height:1.4;
+}
+
+/* ─── Shared video utilities ─── */
+.video-caption {
+  padding:10px 16px; font-size:.7rem;
+  color:rgba(255,255,255,.35); text-align:center;
+  letter-spacing:.06em;
+  background:rgba(0,0,0,.5);
+  border-top:1px solid rgba(255,255,255,.05);
+  flex-shrink:0;
+}
+.video-steps { display:flex; flex-direction:column; gap:8px; margin-top:16px; }
+.video-step {
+  display:flex; gap:10px; align-items:flex-start;
+  font-size:.82rem; color:var(--text-secondary); line-height:1.55;
+}
+.video-step-num { color:var(--accent-cyan); font-weight:700; font-size:.82rem; flex-shrink:0; }
+
+/* ═══════════════════════════════════════
+   WORKFLOW / LEAN AI
+═══════════════════════════════════════ */
+.workflow-section {
+  background:var(--bg-primary);
+  padding:100px 5%;
+}
+.workflow-container { max-width:1200px; margin:0 auto; }
+.section-subtitle {
+  font-size:1rem; color:var(--text-secondary);
+  text-align:center; max-width:660px; margin:0 auto 56px; line-height:1.75;
+}
+.workflow-visual {
+  display:flex; align-items:center; justify-content:center;
+  gap:0; max-width:680px; margin:0 auto 80px;
+}
+.node {
+  background:rgba(124,58,237,.1); border:1px solid rgba(124,58,237,.35);
+  border-radius:12px; padding:16px 28px;
+  font-family:'Outfit',sans-serif; font-weight:700; font-size:.95rem;
+  color:var(--text-primary); white-space:nowrap;
+}
+.logo-node { padding:16px 22px; }
+.glow { box-shadow:0 0 24px rgba(124,58,237,.2); }
+.line {
+  flex:1; height:2px; position:relative; overflow:hidden;
+  background:linear-gradient(90deg,rgba(124,58,237,.4),rgba(0,212,255,.4));
+}
+.animate-flow::after {
+  content:''; position:absolute; top:0; left:-40%; width:40%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(0,212,255,.9),transparent);
+  animation:flowAnim 2s linear infinite;
+}
+@keyframes flowAnim { 0%{left:-40%} 100%{left:140%} }
+
+/* Lean Wrap */
+.lean-wrap {
+  display:grid; grid-template-columns:1fr 1.15fr; gap:72px; align-items:center;
+}
+.lean-orb {
+  display:flex; align-items:center; justify-content:center;
+  height:420px; position:relative;
+}
+.orb-core {
+  width:240px; height:240px; border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.18),transparent 70%);
+  border:1px solid rgba(124,58,237,.35);
+  display:flex; align-items:center; justify-content:center;
+  animation:orbPulse 4s ease-in-out infinite; position:relative; z-index:1;
+}
+@keyframes orbPulse {
+  0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.4)}
+  50%{box-shadow:0 0 0 18px rgba(124,58,237,0)}
+}
+.orb-text { text-align:center; }
+.orb-l, .orb-r {
+  display:block; font-family:'Outfit',sans-serif; font-weight:800; font-size:2.8rem; line-height:1.1;
+}
+.orb-l { color:var(--accent-purple2); }
+.orb-r {
+  background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple2));
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.orb-small {
+  font-size:.6rem !important; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--text-muted) !important; font-family:'Inter',sans-serif !important;
+  font-weight:500 !important; margin-top:4px; display:block;
+}
+.orb-ring {
+  position:absolute; top:50%; left:50%;
+  width:340px; height:340px; transform:translate(-50%,-50%);
+  border:1px dashed rgba(0,212,255,.18); border-radius:50%;
+  animation:ringRotate 18s linear infinite;
+}
+@keyframes ringRotate { 0%{transform:translate(-50%,-50%) rotate(0deg)} 100%{transform:translate(-50%,-50%) rotate(360deg)} }
+.orb-node {
+  position:absolute; width:46px; height:46px; border-radius:50%;
+  background:rgba(7,12,26,.95); border:1px solid rgba(255,255,255,.08);
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem;
+  animation:nodeCounter 18s linear infinite;
+}
+@keyframes nodeCounter { 0%{transform:rotate(0deg)} 100%{transform:rotate(-360deg)} }
+.nd0 { top:-23px; left:calc(50% - 23px); }
+.nd1 { bottom:-23px; left:calc(50% - 23px); }
+.nd2 { left:-23px; top:calc(50% - 23px); }
+.nd3 { right:-23px; top:calc(50% - 23px); }
+
+.lean-content .lean-tag {
+  display:block; font-size:.7rem; font-weight:700;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--accent-purple2); margin-bottom:14px;
+}
+.lean-title {
+  font-family:'Outfit',sans-serif; font-weight:800; font-size:2.8rem;
+  line-height:1; color:var(--text-primary); margin-bottom:16px;
+}
+.lean-desc { font-size:.93rem; color:var(--text-secondary); line-height:1.75; margin-bottom:32px; }
+.lean-pillars { display:flex; flex-direction:column; gap:12px; }
+.lean-p {
+  display:flex; gap:13px; align-items:flex-start;
+  background:rgba(255,255,255,.03); border:1px solid var(--border);
+  border-radius:12px; padding:15px 17px; transition:all .3s;
+}
+.lean-p:hover {
+  border-color:rgba(124,58,237,.4);
+  transform:translateX(6px);
+  box-shadow:-4px 0 20px rgba(124,58,237,.12);
+}
+.lean-icon {
+  font-size:1.4rem; flex-shrink:0; width:40px; height:40px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(124,58,237,.1); border-radius:9px;
+}
+.lean-pt { font-family:'Outfit',sans-serif; font-weight:700; font-size:.86rem; color:var(--text-primary); margin-bottom:3px; }
+.lean-pd { font-size:.78rem; color:var(--text-secondary); line-height:1.58; }
+
+/* ═══════════════════════════════════════
+   FOOTER / CTA
+═══════════════════════════════════════ */
+.footer {
+  background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(0,212,255,.05));
+  border-top:1px solid rgba(124,58,237,.2);
+  padding:90px 5% 40px;
+}
+.cta-container { text-align:center; max-width:600px; margin:0 auto 60px; }
+.cta-container h2 {
+  font-family:'Outfit',sans-serif; font-weight:800; font-size:2.6rem;
+  color:var(--text-primary); margin-bottom:14px;
+}
+.cta-container p { font-size:.95rem; color:var(--text-secondary); margin-bottom:32px; line-height:1.7; }
+.pulse { animation:pulseCTA 2.5s ease-in-out infinite; }
+@keyframes pulseCTA {
+  0%,100%{box-shadow:0 4px 24px rgba(124,58,237,.4)}
+  50%{box-shadow:0 4px 40px rgba(124,58,237,.7)}
+}
+.footer-bottom {
+  text-align:center; font-size:.78rem; color:var(--text-muted);
+  border-top:1px solid var(--border); padding-top:28px; margin-top:40px;
+}
+
+/* Mouse glow */
+.glow-effect {
+  position:fixed; pointer-events:none; z-index:9999;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.06),transparent 70%);
+  transform:translate(-50%,-50%);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:1024px) {
+  .services-grid { grid-template-columns:repeat(2,1fr); }
+  .lean-wrap { grid-template-columns:1fr; }
+  .lean-orb { display:none; }
+}
+@media(max-width:768px) {
+  .services-grid { grid-template-columns:1fr; }
+  .nav-links a { padding:6px 10px; font-size:.75rem; }
+  .hero-title { font-size:clamp(2.4rem,10vw,4rem); }
+  .kpi-scroller { padding:20px 0; }
+}
+
+/* ═══════════════════════════════════════
+   KPI SCROLLER
+═══════════════════════════════════════ */
+.kpi-scroller {
+  width:100%; overflow:hidden; position:relative;
+  padding:28px 0;
+  /* fade edges */
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image:linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.kpi-track {
+  display:flex; gap:16px; width:max-content;
+  animation:kpiScroll 28s linear infinite;
+}
+.kpi-track:hover { animation-play-state:paused; }
+@keyframes kpiScroll {
+  0%   { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+.kpi-card {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  min-width:200px; padding:18px 24px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(160,160,160,.18);
+  border-radius:12px;
+  text-align:center; flex-shrink:0;
+  gap:2px;
+}
+.kpi-value {
+  font-family:'Outfit',sans-serif; font-weight:800;
+  font-size:1.8rem; line-height:1;
+  color:var(--text-primary); margin-bottom:4px;
+}
+.kpi-label1 {
+  font-size:.72rem; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--accent-cyan);
+}
+.kpi-label2 {
+  font-size:.75rem; color:var(--text-secondary); line-height:1.3;
+}
+
+/* ═══════════════════════════════════════
+   IMAGE PLACEHOLDER (same size as icon)
+═══════════════════════════════════════ */
+.service-img-placeholder {
+  width:52px; height:52px; border-radius:14px;
+  background:rgba(124,58,237,.08);
+  border:1px dashed rgba(124,58,237,.3);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px; flex-shrink:0;
+  position:relative; overflow:hidden;
+}
+.service-img-placeholder img {
+  width:100%; height:100%; object-fit:cover; border-radius:13px;
+}
+/* placeholder visual hint (hidden once real img is added) */
+.service-img-placeholder::after {
+  content:'＋';
+  font-size:1.2rem; color:rgba(124,58,237,.35);
+  position:absolute;
+}
+/* hide the + once the slot has a real img child */
+.service-img-placeholder:has(img)::after { display:none; }
+/* Same placeholder but inside wide card text col */
+.card-wide-text .service-img-placeholder { margin-bottom:14px; }
+
+/* ═══════════════════════════════════════
+   SPLIT CARD (image+text left / video right)
+   Used for ALL cards that have a video demo.
+   Left col: 30% image top + 70% text bottom
+   Right col: video fills 100% height
+═══════════════════════════════════════ */
+.service-card--split {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 460px;
+  padding: 0;
+  border-color: rgba(0,212,255,.22);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+.service-card--split:hover {
+  border-color: rgba(0,212,255,.45);
+  box-shadow: 0 20px 60px rgba(0,212,255,.12);
+}
+.service-card--split::before { display:none; }
+
+/* Left column */
+.scs-left {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(0,212,255,.1);
+  background: linear-gradient(135deg, rgba(0,212,255,.04), rgba(124,58,237,.06));
+  position: relative;
+}
+.scs-left::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple));
+  transform:scaleX(0); transform-origin:left; transition:transform .4s;
+}
+.service-card--split:hover .scs-left::after { transform:scaleX(1); }
+
+/* Image slot: Full width but strictly constrained height */
+.scs-img {
+  height: 160px;
+  min-height: 160px;
+  max-height: 160px;
+  flex: 0 0 160px;
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0,0,0,.25);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0;
+}
+.scs-img .service-img-placeholder {
+  width: 100%; height: 100%;
+  border-radius: 0; margin-bottom: 0;
+  border: none;
+  background: rgba(124,58,237,.06);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.scs-img .service-img-placeholder::after { font-size:2rem; color:rgba(124,58,237,.2); }
+.scs-img img {
+  width:100%; height:100%; object-fit:cover; object-position: center; display:block;
+}
+
+/* Text slot: 70% of left col height */
+.scs-text {
+  flex: 1;
+  padding: 28px 30px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.scs-text h3 { margin-bottom: 6px; }
+
+/* Right column: video fills entire height */
+.scs-right {
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  min-height: 460px;
+}
+.scs-right video {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 380px;
+}
+.scs-right .video-caption {
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════
+   YOUTUBE FACADE
+═══════════════════════════════════════ */
+.youtube-facade {
+  position: relative;
+  width: 100%; height: 100%; min-height: 380px;
+  background-size: cover; background-position: center;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  flex: 1; background-color: #000;
+}
+.youtube-facade::before {
+  content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.3); transition: background 0.3s;
+}
+.youtube-facade:hover::before { background: rgba(0,0,0,0.1); }
+.play-btn {
+  position: relative; z-index: 1;
+  width: 72px; height: 48px; border-radius: 14px;
+  background: rgba(0,0,0,0.6); color: #fff; font-size: 1.5rem;
+  border: 1px solid rgba(255,255,255,0.1); cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.youtube-facade:hover .play-btn {
+  transform: scale(1.1); background: var(--accent-purple); border-color: var(--accent-cyan);
+  box-shadow: 0 4px 20px rgba(0,212,255,0.5);
+}
+.youtube-facade iframe {
+  position: absolute; top:0; left:0; width: 100%; height: 100%; border: none; z-index: 2;
+}
+
+/* Responsive */
+@media(max-width:1024px) {
+  .service-card--split { grid-template-columns:1fr; min-height:auto; }
+  .scs-left { border-right:none; border-bottom:1px solid rgba(0,212,255,.1); }
+  .scs-img { min-height:160px; flex:0 0 160px; }
+  .scs-right { min-height:280px; }
+  .scs-right video { min-height:280px; }
+}
+@media(max-width:768px) {
+  .scs-right { min-height:200px; }
+  .scs-right video { min-height:200px; }
+}
+
+/* ═══════════════════════════════════════
+   GROUP SECTION TITLES
+═══════════════════════════════════════ */
+.group-section {
+  padding: 80px 5% 0;
+  background: var(--bg-secondary);
+}
+.group-section.alt { background: var(--bg-primary); }
+.group-section:last-of-type { padding-bottom: 0; }
+
+.group-header {
+  max-width: 1200px;
+  margin: 0 auto 36px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.group-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+.group-header h2 span {
+  background: linear-gradient(135deg, var(--accent-purple2), var(--accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.group-divider {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(124,58,237,.6), rgba(0,212,255,.25), transparent);
+}
+.group-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-bottom: 80px;
+}
+/* Full-width split cards inside groups */
+.group-grid .service-card--split {
+  grid-column: 1 / -1;
+}
+@media(max-width:1024px) {
+  .group-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width:768px) {
+  .group-grid { grid-template-columns: 1fr; }
+  .group-header h2 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-text">PYMAI</span>
+    </div>
+    <div class="nav-links">
+      <a href="#agentes-ia">Agentes IA</a>
+      <a href="#agentes-personalizados">Agentes Personalizados</a>
+      <a href="#automatizaciones">Automatizaciones</a>
+      <a href="#contacto" class="btn btn-outline">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Automatización Inteligente para <span class="highlight">negocios y Pymes.</span></h1>
+      <p class="hero-subtitle">Transformamos tu negocio implementando Inteligencia Artificial y automatización,<br>diseñadas específicamente para las necesidades de tu empresa.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Empieza la Transformación</a>
+      </div>
+    </div>
+
+    <!-- KPI Scroller -->
+    <div class="kpi-scroller">
+      <div class="kpi-track" id="kpiTrack">
+        <!-- Set 1 -->
+        <div class="kpi-card">
+          <div class="kpi-value">24/7</div>
+          <div class="kpi-label1">Sin interrupciones</div>
+          <div class="kpi-label2">Operación automatizada</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">100%</div>
+          <div class="kpi-label1">Personalización total</div>
+          <div class="kpi-label2">Necesidades reales de la empresa</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">✦ IA</div>
+          <div class="kpi-label1">Tendencia Global</div>
+          <div class="kpi-label2">La Adaptación del futuro</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">↓ %</div>
+          <div class="kpi-label1">Reducción de tareas manuales</div>
+          <div class="kpi-label2">Eficiencia operativa</div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="kpi-card">
+          <div class="kpi-value">24/7</div>
+          <div class="kpi-label1">Sin interrupciones</div>
+          <div class="kpi-label2">Operación automatizada</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">100%</div>
+          <div class="kpi-label1">Personalización total</div>
+          <div class="kpi-label2">Necesidades reales de la empresa</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">✦ IA</div>
+          <div class="kpi-label1">Tendencia Global</div>
+          <div class="kpi-label2">La Adaptación del futuro</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-value">↓ %</div>
+          <div class="kpi-label1">Reducción de tareas manuales</div>
+          <div class="kpi-label2">Eficiencia operativa</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       GRUPO 1 — AGENTES IA
+  ════════════════════════════════════ -->
+  <section id="agentes-ia" class="group-section">
+    <div class="group-header">
+      <h2><span>Agentes IA</span></h2>
+      <div class="group-divider"></div>
+    </div>
+    <div class="group-grid">
+
+      <!-- Agentes IA de Atención al Cliente + Ventas -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder"><img src="./public/img_1.png" alt="Agentes IA de Atención al Cliente"></div>
+          </div>
+          <div class="scs-text">
+            <h3>Agentes IA de Atención al Cliente + Ventas</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Cada consulta que NO atiendes es un cliente que se va a la competencia. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:6px">Implementamos agentes IA que:</p>
+            <ul class="card-list">
+              <li>Gestionan Consultas y Atienden Clientes</li>
+              <li>Agendan y Recuerdan citas</li>
+              <li>Envían Notificaciones e Información Relevante</li>
+            </ul>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-top:8px">Tu negocio responde en tiempo real, sin descanso, 24/7.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/uZwaxyguUg8?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/uZwaxyguUg8/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Agentes IA de Atención al Cliente — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+      <!-- Agentes para mejorar la percepción del usuario -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder"><img src="./public/img_2.png" alt="Agentes para mejorar la percepción"></div>
+          </div>
+          <div class="scs-text">
+            <h3>Agentes para mejorar la percepción del usuario</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Conversación más fluida, cercana y mucho más humana. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:6px">Configura tu Agente para que resulte más Humano:</p>
+            <ul class="card-list">
+              <li>Agrupan los mensajes en un buffer</li>
+              <li>Respuestas estructuradas</li>
+              <li>Adapta las respuestas a cada cliente</li>
+            </ul>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/p0-FiAWQRyo?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/p0-FiAWQRyo/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Agentes para mejorar la percepción — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+      <!-- Agente IA + especializado -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder"><img src="./public/img_3.png" alt="Agente IA especializado"></div>
+          </div>
+          <div class="scs-text">
+            <h3>Agente IA + especializado</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Un agente que solo responde no es suficiente — uno que actúa transforma tu negocio. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:6px">Personaliza tu Agente de Atención al cliente al siguiente nivel, como puede ser:</p>
+            <ul class="card-list">
+              <li>Presupuestos Automáticos</li>
+              <li>Asistente de Voz Telefónico</li>
+              <li>Califica Clientes por su Valor</li>
+              <li>Gestión de Incidencias</li>
+            </ul>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-top:8px">Cada uno optimizado para su tarea concreta.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/fe03bNi8cu4?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/fe03bNi8cu4/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Agente IA especializado — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       GRUPO 2 — AGENTES PERSONALIZADOS
+  ════════════════════════════════════ -->
+  <section id="agentes-personalizados" class="group-section alt">
+    <div class="group-header">
+      <h2><span>Agentes Personalizados</span></h2>
+      <div class="group-divider"></div>
+    </div>
+    <div class="group-grid">
+
+      <!-- Asistente Personal -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder"><img src="./public/img_4.png" alt="Asistente Personal"></div>
+          </div>
+          <div class="scs-text">
+            <h3>Asistente Personal</h3>
+            <p class="card-subtitle">Con este Agente trabajaras como un jefe de verdad</p>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Un solo Asistente inteligente que coordina todas tus tareas y órdenes en tiempo real. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary)">Configurado con un Agente Principal que coordina Sub-Agentes especializados — contactos, correo, calendario, búsquedas y más. Las tareas se distribuyen y ejecutan de forma óptima: todo resuelto de forma autónoma, en una sola automatización.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/7_PGMrh_0HI?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/7_PGMrh_0HI/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Asistente Personal — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+      <!-- Agente Multi-formato + Idioma + RAG -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder"><img src="./public/img_5.png" alt="Agente Multi-formato"></div>
+          </div>
+          <div class="scs-text">
+            <h3>Agente Multi-formato + Idioma + sistema RAG con base de conocimiento</h3>
+            <p class="card-subtitle">Adapta las respuestas a diferentes entradas de mensajes</p>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Tu cliente no debería adaptarse al Agente — El Agente debe adaptarse a tu cliente. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary)">Comprende textos, audios, imágenes y vídeos; responde por escrito o por voz. Buffer inteligente que agrupa mensajes, detector de idioma automático y sistema RAG que consulta tus propios documentos.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/pslspXnyBuA?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/pslspXnyBuA/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Agente Multi-formato — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+      <!-- Agente Inteligente con Base de Conocimiento - Sistema RAG -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder"><img src="./public/img_6.png" alt="Sistema RAG"></div>
+          </div>
+          <div class="scs-text">
+            <h3>Agente Inteligente con Base de Conocimiento - Sistema RAG</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:10px">❝ La IA no conoce tu negocio — hasta que le enseñas tus propios documentos. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px">Convertimos tu documentación en una base de conocimiento viva, accesible al instante para clientes y empleados.</p>
+            <div class="video-steps">
+              <div class="video-step">
+                <span class="video-step-num">1.</span>
+                <span><strong style="color:var(--text-primary)">Recuperación</strong> — busca los fragmentos más relevantes de tus documentos.</span>
+              </div>
+              <div class="video-step">
+                <span class="video-step-num">2.</span>
+                <span><strong style="color:var(--text-primary)">Generación</strong> — el modelo los usa para dar una respuesta precisa y personalizada.</span>
+              </div>
+            </div>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/6Nrron5r7tg?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/6Nrron5r7tg/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Sistema RAG — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════
+       GRUPO 3 — AUTOMATIZACIONES
+  ════════════════════════════════════ -->
+  <section id="automatizaciones" class="group-section">
+    <div class="group-header">
+      <h2><span>Automatizaciones</span></h2>
+      <div class="group-divider"></div>
+    </div>
+    <div class="group-grid">
+
+      <!-- Automatización de tareas empresariales -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder">
+              <img src="./public/img_7.png" alt="Automatización de tareas">
+            </div>
+          </div>
+          <div class="scs-text">
+            <h3>Automatización de tareas empresariales</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Cada hora de tu equipo en tareas repetitivas es talento y dinero desperdiciado. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary)">Rediseñamos la manera en que tu empresa opera con automatizaciones creadas para eliminar lo repetitivo, reducir costes y multiplicar la eficiencia. Tu equipo se centra en lo que aporta valor; tu negocio crece de forma ágil y sostenible.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/KemPeDLR5GI?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/KemPeDLR5GI/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Automatización de tareas — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+      <!-- Automatización de Facturas -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder">
+              <img src="./public/img_8.png" alt="Automatización de Facturas">
+            </div>
+          </div>
+          <div class="scs-text">
+            <h3>Automatización de Facturas</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Cada factura gestionada a mano es tiempo y dinero que no vuelven. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary)">Digitalizamos y automatizamos el proceso de gestión de facturas, reduciendo errores y ahorrando tiempo en tareas repetitivas.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/aMqjemMjw8I?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/aMqjemMjw8I/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Automatización de Facturas — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+      <!-- Asistente de Voz Telefónicos -->
+      <div class="service-card service-card--split">
+        <div class="scs-left">
+          <div class="scs-img">
+            <div class="service-img-placeholder">
+              <img src="./public/img_9.png" alt="Asistente de Voz">
+            </div>
+          </div>
+          <div class="scs-text">
+            <h3>Asistente de Voz Telefónicos</h3>
+            <p style="font-size:.82rem;color:var(--accent-cyan);font-style:italic;margin-bottom:8px">❝ Cada llamada perdida es una reserva que no volvió y un cliente menos. ❞</p>
+            <p style="font-size:.85rem;color:var(--text-secondary)">Atiende reservas, solicitudes de información o incidencias a través de nuestra inteligencia artificial vía llamada. Disponible las 24 horas del día.</p>
+            <a href="#" class="btn btn-outline" style="margin-top:auto; align-self:flex-start; padding:6px 14px; font-size:0.75rem; border-radius:6px; margin-bottom: 10px;">← Volver al inicio</a>
+
+          </div>
+        </div>
+        <div class="scs-right">
+          <div class="youtube-facade" data-ytsrc="https://www.youtube.com/embed/AW8RAukoULg?autoplay=1&rel=0&modestbranding=1" style="background-image: url('https://img.youtube.com/vi/AW8RAukoULg/maxresdefault.jpg');">
+            <button class="play-btn">▶</button>
+          </div>
+          <div class="video-caption">▶ Asistente de Voz Telefónicos — Haz clic para reproducir</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Workflow / Lean AI -->
+  <section id="workflow" class="workflow-section">
+    <div class="workflow-container">
+      <h2 class="section-title">Lean AI: Mejora Continua</h2>
+      <p class="section-subtitle">Combinamos los principios de mejora continua con la potencia de la IA. Identificamos ineficiencias y automatizamos tareas para eliminar cuellos de botella de forma orgánica.</p>
+      <div class="workflow-visual">
+        <div class="node node-left glow">Tus Procesos</div>
+        <div class="line animate-flow"></div>
+        <div class="node node-center glow logo-node" style="font-family:'Outfit',sans-serif;font-weight:800">LEAN <span style="color:var(--accent-cyan)">+ IA</span></div>
+        <div class="line animate-flow"></div>
+        <div class="node node-right glow">Resultados</div>
+      </div>
+
+      <div class="lean-wrap">
+        <div class="lean-orb">
+          <div class="orb-ring">
+            <div class="orb-node nd0">🔄</div>
+            <div class="orb-node nd1">📊</div>
+            <div class="orb-node nd2">🔍</div>
+            <div class="orb-node nd3">⚡</div>
+          </div>
+          <div class="orb-core">
+            <div class="orb-text">
+              <span class="orb-l">LEAN</span>
+              <span class="orb-r">+ IA</span>
+              <span class="orb-small">Mejora Continua</span>
+            </div>
+          </div>
+        </div>
+        <div class="lean-content">
+          <span class="lean-tag">✦ Metodología exclusiva PYMAI</span>
+          <h2 class="lean-title">La Convergencia<br>que Transforma</h2>
+          <p class="lean-desc">Lean AI combina los principios de la mejora continua con la potencia de la IA. Tecnología tan bien integrada que se vuelve imperceptible, un copiloto analítico para tu producción.</p>
+          <div class="lean-pillars">
+            <div class="lean-p">
+              <div class="lean-icon">🔄</div>
+              <div>
+                <div class="lean-pt">Kaizen + IA: Mejora Continua</div>
+                <div class="lean-pd">Identifica ineficiencias más rápido analizando volúmenes de datos para sugerir áreas de mejora.</div>
+              </div>
+            </div>
+            <div class="lean-p">
+              <div class="lean-icon">🗑️</div>
+              <div>
+                <div class="lean-pt">Eliminación del Muda</div>
+                <div class="lean-pd">Automatiza tareas, eliminando tiempos muertos y cuellos de botella mediante integración.</div>
+              </div>
+            </div>
+            <div class="lean-p">
+              <div class="lean-icon">🎯</div>
+              <div>
+                <div class="lean-pt">Valor Real Inmediato</div>
+                <div class="lean-pd">Los procesos se adaptan en tiempo real sin requerir meses de desarrollo y aprendizaje.</div>
+              </div>
+            </div>
+            <div class="lean-p">
+              <div class="lean-icon">⚡</div>
+              <div>
+                <div class="lean-pt">Velocidad de Implementación</div>
+                <div class="lean-pd">Las iniciativas pasan de semanas a horas o días apoyándose en flujos autónomos y automatizados.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer / CTA -->
+  <footer id="contacto" class="footer">
+    <div class="cta-container">
+      <h2>¿Listo para revolucionar tu empresa?</h2>
+      <p>Agenda una consulta gratuita y descubre el potencial de la IA en tu negocio.</p>
+      <a href="#" class="btn btn-primary pulse">Agendar Demo</a>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PYMAI. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Mouse glow -->
+  <div class="glow-effect" id="glow-effect"></div>
+
+<script>
+/* Mouse follow glow */
+const ge = document.getElementById('glow-effect');
+document.addEventListener('mousemove', e => {
+  ge.style.left = e.clientX + 'px';
+  ge.style.top  = e.clientY + 'px';
+});
+
+/* Navbar shrink on scroll */
+window.addEventListener('scroll', () => {
+  document.querySelector('.navbar').style.height = window.scrollY > 60 ? '56px' : '68px';
+});
+
+/* 3D hover on service cards */
+document.querySelectorAll('.service-card:not(.service-card--split)').forEach(c => {
+  c.addEventListener('mousemove', e => {
+    const r = c.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width  - .5;
+    const y = (e.clientY - r.top)  / r.height - .5;
+    c.style.transform = `perspective(800px) rotateX(${-y*5}deg) rotateY(${x*5}deg) translateY(-5px)`;
+  });
+  c.addEventListener('mouseleave', () => c.style.transform = '');
+});
+/* YouTube facade lazy load */
+document.querySelectorAll('.youtube-facade').forEach(facade => {
+  facade.addEventListener('click', () => {
+    const ytsrc = facade.getAttribute('data-ytsrc');
+    facade.innerHTML = `<iframe src="${ytsrc}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  });
+});
+</script>
+</body>
+</html>
